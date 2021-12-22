@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom'
+import { Routes } from './routes'
 
-function App() {
+import Nav from './temp/Nav'
+import Footer from './temp/Footer'
+
+import Dashboard from './pages/Dashboard'
+import Login from './pages/Login'
+
+const RouteWithoutNavbar = ({ component: Component, ...rest }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Route {...rest} render={props => (
+      <>
+        <Component {...props} />
+      </>
+    )}
+    />
   );
 }
 
-export default App;
+const RouteWithNavbar = ({ component: Component, ...rest }) => {
+
+  return (
+    <Route {...rest} render={props => (
+      <>
+
+        <Nav />
+        <div className="content-wrapper">
+          <Component {...props} />
+
+        </div>
+        {/* Control Sidebar */}
+        <aside className="control-sidebar control-sidebar-dark">
+          {/* Control sidebar content goes here */}
+        </aside>
+        {/* /.control-sidebar */}
+
+        <Footer />
+
+      </>
+    )}
+    />
+  );
+};
+
+
+
+export default () => {
+  return (
+    <>
+
+
+
+      <Switch>
+        <RouteWithNavbar exact path={Routes.Dashboard.path} component={Dashboard} />
+
+
+        <RouteWithoutNavbar exact path={Routes.Login.path} component={Login} />
+      </Switch>
+
+
+
+    </>
+  );
+}
+
