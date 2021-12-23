@@ -8,10 +8,10 @@ const Nav = () => {
         <>
             <nav className="main-header navbar navbar-expand-md navbar-light navbar-dark">
                 <div className="container">
-                    <a href="<?= base_url() ?>" className="navbar-brand">
+                    <Link to="/" className="navbar-brand">
                         <img src="./dist/img/AdminLTELogo.png" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{ opacity: '.8' }} />
                         <span className="brand-text font-weight-light">Toptan App</span>
-                    </a>
+                    </Link>
                     <button className="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
@@ -19,19 +19,22 @@ const Nav = () => {
                         {/* Left navbar links */}
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a href="<?= base_url('admin')  ?>" className="nav-link">Dashboard</a>
+                                <Link to="/dashboard" className="nav-link">Dashboard</Link>
                             </li>
                             <li className="nav-item">
-                                <a href="<?= base_url('admin/catalog')  ?>" className="nav-link">Katalog</a>
+                                <a href="/items" className="nav-link">Ürünler</a>
                             </li>
                             <li className="nav-item dropdown">
-                                <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="nav-link dropdown-toggle">Listeler</a>
+                                <Link id="dropdownSubMenu1"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="nav-link dropdown-toggle">Listeler</Link>
                                 <ul aria-labelledby="dropdownSubMenu1" className="dropdown-menu border-0 shadow">
-                                    <li><a href="<?= base_url('admin/list/customer')  ?>" className="dropdown-item">Müşteri Listesi </a>
+                                    <li>
+                                        <Link to="/list/customer" className="dropdown-item">Müşteri Listesi </Link>
                                     </li>
-                                    <li><a href="<?= base_url('admin/list/order')  ?>" className="dropdown-item">Sipariş Listesi</a>
+                                    <li>
+                                        <Link to="/list/order" className="dropdown-item">Sipariş Listesi</Link>
                                     </li>
-                                    <li><a href="<?= base_url('admin/list/catalog')  ?>" className="dropdown-item">Katalog Listesi</a>
+                                    <li>
+                                        <Link to="/list/catalog" className="dropdown-item">Katalog Listesi</Link>
                                     </li>
                                     {/* <li class="dropdown-divider"></li> */}
                                 </ul>
@@ -39,12 +42,13 @@ const Nav = () => {
                             <li className="nav-item dropdown">
                                 <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" className="nav-link dropdown-toggle">Ayarlar</a>
                                 <ul aria-labelledby="dropdownSubMenu1" className="dropdown-menu border-0 shadow">
-                                    <li><a href="<?= base_url('admin/settings/companyprofile')  ?>" className="dropdown-item">Firma profili</a></li>
-                                    <li><a href="<?= base_url('admin/settings/users')  ?>" className="dropdown-item">Kullanıcılar</a></li>
-                                    <li><a href="<?= base_url('admin/settings/units')  ?>" className="dropdown-item">Ölçüt Birimleri</a></li>
-                                    <li><a href="<?= base_url('admin/settings/currentcy')  ?>" className="dropdown-item">Para Birimleri</a></li>
-                                    <li><a href="<?= base_url('admin/settings/cities')  ?>" className="dropdown-item">Şehirler</a></li>
-                                    <li><a href="<?= base_url('admin/settings/regions')  ?>" className="dropdown-item">Bölgeler</a></li>
+                                    <li>
+                                        <Link to="/companyprofile" className="dropdown-item">Firma profili</Link></li>
+                                    <li><Link to="/users" className="dropdown-item">Kullanıcılar</Link></li>
+                                    <li><Link to="/units" className="dropdown-item">Ölçüt Birimleri</Link></li>
+                                    <li><Link to="/currentcy" className="dropdown-item">Para Birimleri</Link></li>
+                                    <li><Link to="/cities" className="dropdown-item">Şehirler</Link></li>
+                                    <li><Link to="/regions" className="dropdown-item">Bölgeler</Link></li>
                                     {/* <li class="dropdown-divider"></li> */}
                                 </ul>
                             </li>
@@ -54,10 +58,10 @@ const Nav = () => {
                     <ul className="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
                         {/* Messages Dropdown Menu */}
                         <li className="nav-item dropdown">
-                            <a className="nav-link" data-toggle="dropdown" href="#">
+                            <Link className="nav-link" data-toggle="dropdown" >
                                 <i className="fas fa-cart-arrow-down" />
                                 <span className="badge badge-danger navbar-badge order-count">0</span>
-                            </a>
+                            </Link>
                             <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right dropdown-order">
                                 <div className="dropdown-item dropdown-order-item" style={{ display: 'none' }}>
                                     {/* Message Start */}

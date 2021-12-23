@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Link} from 'react-router-dom'
 
 
@@ -6,8 +6,8 @@ import {Link} from 'react-router-dom'
 const Login = () => {
 
     const [user, setUser] = useState({
-        user_name = null,
-        user_password = null
+        user_name : null,
+        user_password : null
     })
     const submitHandler = (e) =>{
         e.preventDefault();
